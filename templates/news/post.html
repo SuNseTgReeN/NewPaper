@@ -1,0 +1,26 @@
+{% extends 'flatpages/default.html' %}
+
+{% load i18n %}
+
+{% block title %}
+{{ post_detail }}
+{% endblock title %}
+
+{% block content %}
+<h1 class="text-center">{{ post_detail.title }} <span class="text-muted fs-6 fw-normal"></span></h1>
+<hr>
+    <table>
+        <tr>
+            <td>{{ post_detail.date_creation|date:'d M Y' }}</td>
+        </tr>
+    </table>
+<ul class="list-inline">
+    <li class="list-inline-item">{{ post_detail.text }}</li>
+    <li class="list-inline-item">
+           <div class="d-grid gap-2 d-md-block">
+                <a class="linc" href="{% url 'news:post_update' post_detail.id %}">{% trans "Edit the news" %}</a>
+                <a class="linc" href="{% url 'news:post_delete' post_detail.id %}">{% trans "Delete post" %}</a>
+           </div>
+    </li>
+</ul>
+{% endblock content %}

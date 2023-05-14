@@ -1,0 +1,12 @@
+{% extends 'flatpages/default.html' %}
+
+{% load i18n %}
+
+{% block content %}
+<hr>
+<form action="" method="post">
+    {% csrf_token %}
+    <p>{% trans "Delete" %} "{{ object.title }}"?</p>
+    <input type="submit" value="Delete" />
+</form>
+{% endblock content %}
